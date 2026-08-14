@@ -1,0 +1,487 @@
+<p><strong>Fall 2026 · Fully Online · Asynchronous</strong></p>
+<blockquote>
+<p>Draft syllabus ready for Canvas upload. Update the <em>TBD</em> items (course CRN, Canvas link, instructor Calendly URL) before publishing.</p>
+</blockquote>
+<hr />
+<h2>General Information</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Course title</strong></td>
+<td>Quantitative Methods in GIS</td>
+</tr>
+<tr>
+<td><strong>Course number</strong></td>
+<td>GHY 417 (undergraduate) / GHY 517 (graduate) — cross-listed</td>
+</tr>
+<tr>
+<td><strong>Semester</strong></td>
+<td>Fall 2026</td>
+</tr>
+<tr>
+<td><strong>Format</strong></td>
+<td>Fully online, asynchronous — no live meeting is required</td>
+</tr>
+<tr>
+<td><strong>Prerequisites</strong></td>
+<td>GHY 217 &amp; L (Intro to GIS) or equivalent recommended; not absolute for graduate students</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Instructor</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Name</strong></td>
+<td>George T. Raber</td>
+</tr>
+<tr>
+<td><strong>Email</strong></td>
+<td>george.raber@usm.edu</td>
+</tr>
+<tr>
+<td><strong>Office</strong></td>
+<td>Walker Science Building 226 (Hattiesburg)</td>
+</tr>
+<tr>
+<td><strong>Office hours</strong></td>
+<td><strong>By appointment.</strong> Book a Teams or Zoom meeting via email; typical response within 24 hours on weekdays. Any question that turns out to be widely useful will be summarized as a Canvas announcement so the whole class benefits.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Course Description</h2>
+<p>GHY 417/517 introduces the quantitative methods used to describe spatial and non-spatial geographic data and to test hypotheses about spatial processes. The course moves from the nature of geographic data and descriptive statistics, through probability, sampling, and classical inference, into spatial-specific methods: point pattern analysis, spatial autocorrelation, and spatial regression. Examples draw from environmental geoscience — Gulf coast hurricanes and wetlands, Mississippi River hydrology, southeastern forests, environmental justice in Mississippi communities, and biodiversity data. All work is completed in Python using Google Colab, with publication of results to ArcGIS Online.</p>
+<p>The focus throughout is on knowing <em>when</em> to use a technique and what it tells you about a spatial process — not on which buttons to click. Graduate students (517) complete additional reading critiques and an independent research project alongside the standard coursework.</p>
+<hr />
+<h2>Learning Outcomes</h2>
+<p>By the end of this course you will be able to:</p>
+<ol>
+<li><strong>Describe</strong> a geographic dataset using appropriate non-spatial and spatial descriptive statistics, and explain why a chosen statistic is appropriate for the data's measurement scale.</li>
+<li><strong>Apply</strong> the framework of statistical inference — sampling distributions, hypothesis tests, p-values, confidence intervals — to environmental questions, and recognize when classical assumptions are violated.</li>
+<li><strong>Choose and execute</strong> the correct hypothesis test (one-sample, two-sample, ANOVA, chi-square, and non-parametric alternatives) for a stated research question.</li>
+<li><strong>Analyze spatial pattern</strong> using point-pattern methods (quadrat, nearest-neighbor, K-function) and area-pattern methods (Moran's I, Geary's C, LISA), interpreting results in terms of underlying spatial processes.</li>
+<li><strong>Build and interpret</strong> correlation and regression models — OLS, multiple regression, and a spatial-regression / GWR variant — and diagnose violations including spatial autocorrelation in residuals.</li>
+<li><strong>Communicate</strong> statistical and spatial results in plain language and through reproducible Python notebooks and ArcGIS Online web maps or story maps.</li>
+<li><strong>Use generative AI tools responsibly</strong>: prompt effectively, verify output, identify hallucinated methods or syntax, and cite usage.</li>
+</ol>
+<p>Graduate students (517) will additionally be able to:</p>
+<ol start="8">
+<li><strong>Critique</strong> the methods of published spatial-analysis papers, identifying assumptions, threats to validity, and possible improvements.</li>
+<li><strong>Design and execute</strong> an independent spatial-statistical analysis using a dataset relevant to their research interests.</li>
+</ol>
+<hr />
+<h2>Course Materials</h2>
+<h3>Required textbook</h3>
+<p>McGrew, J. C., Jr., Lembo, A. J., and C. B. Monroe (2024). <em>An Introduction to Statistical Problem Solving in Geography</em>, 4th ed. Long Grove, IL: Waveland Press.</p>
+<p>Available at: <a href="https://www.waveland.com/browse.php?t=419">https://www.waveland.com/browse.php?t=419</a></p>
+<h3>Software (all free or provided)</h3>
+<ul>
+<li><strong>Google Colab</strong> — primary Python notebook environment. Sign in with any Google account (personal is fine; a USM Google account also works if you have one).</li>
+<li><strong>ArcGIS Online (institutional)</strong> — used for hosting your feature layers, web maps, and the capstone story map. You will receive an invitation link in Week 1.</li>
+<li><strong>Canvas</strong> — course home; all readings, videos, assignments, quizzes, and discussions live here.</li>
+<li><strong>ArcGIS Pro Desktop is not required</strong> for this course. You are welcome to use it if you already have it, but no exercise depends on it.</li>
+</ul>
+<h3>Python libraries (installed inside Colab, no local install needed)</h3>
+<p><code>numpy</code>, <code>pandas</code>, <code>geopandas</code>, <code>shapely</code>, <code>pyproj</code>, <code>rasterio</code>, <code>xarray</code>, <code>matplotlib</code>, <code>seaborn</code>, <code>contextily</code>, <code>folium</code>, <code>leafmap</code>, <code>statsmodels</code>, <code>scikit-learn</code>, <code>pysal</code>, <code>esda</code>, <code>libpysal</code>, <code>spreg</code>, <code>mgwr</code>, <code>pointpats</code>, <code>arcgis</code>. A Week 1 setup notebook installs and tests all of these.</p>
+<h3>Hardware</h3>
+<p>Any laptop or desktop with a modern web browser and reliable internet access. All computation happens in the cloud (Colab / ArcGIS Online), so a fast local machine is not needed.</p>
+<hr />
+<h2>Course Structure &amp; Weekly Rhythm</h2>
+<p>The course runs on a <strong>Monday–Wednesday rhythm</strong> that repeats every week. Every module opens on the same day of the week, and every deadline falls on the same day of the week — no surprises. Because we are fully online and asynchronous, this predictable rhythm is the scaffold that keeps you on track.</p>
+<h3>Each module includes</h3>
+<ul>
+<li>A <strong>Weekly Overview</strong> page with objectives and a checklist.</li>
+<li><strong>Learning materials</strong>: assigned reading from the textbook, a <strong>segmented video lecture</strong> (4–6 short videos of 6–10 minutes each with in-video knowledge checks), downloadable slides, and a one-page <strong>Data Card</strong> describing the dataset used in the week's lab.</li>
+<li>A short <strong>reading quiz</strong> to confirm you engaged with the reading.</li>
+<li>A <strong>guided lab notebook</strong> (Colab / Jupyter) that walks you through the week's method on real data, with cells for you to complete and interpret. <strong>All labs are solo work.</strong></li>
+<li>A <strong>weekly discussion</strong> where you find an outside example of the week's method applied to an environmental question.</li>
+<li>An <strong>AI Workflow + Verify</strong> section inside the lab notebook (see AI Policy).</li>
+</ul>
+<h3>Deadline rhythm (every week the same)</h3>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>What is due</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Monday 8 am</strong></td>
+<td>Module <em>opens</em> (or Tuesday 8 am if Monday is a university holiday). Start-of-week announcement sent.</td>
+</tr>
+<tr>
+<td><strong>Friday 11:59 pm CT</strong></td>
+<td>Discussion original post due.</td>
+</tr>
+<tr>
+<td><strong>Monday 11:59 pm CT</strong> (of the following week)</td>
+<td>Reading quiz due. Hard close; two lowest quiz scores dropped.</td>
+</tr>
+<tr>
+<td><strong>Tuesday 11:59 pm CT</strong> (of the following week)</td>
+<td>Two discussion replies due.</td>
+</tr>
+<tr>
+<td><strong>Wednesday 11:59 pm CT</strong> (of the following week)</td>
+<td>Lab notebook due.</td>
+</tr>
+</tbody>
+</table>
+<p>Deadlines never fall on a Saturday, Sunday, or university holiday. Because the lab is due the <em>following</em> Wednesday, you have 8–9 days per lab. This is intentional — modules overlap by design, so you can preview the coming week while you finish the current one.</p>
+<h3>Estimated weekly time (per USM 10-hour online expectation)</h3>
+<p>Reading 1.5h · Segmented video 1h · Quiz 0.5h · Lab notebook 3h · Discussion post + replies 0.5h · Capstone work 2.5h · Slack and review 1h. <strong>Total ≈ 10 hours per week.</strong></p>
+<hr />
+<h2>Assessment &amp; Grading</h2>
+<p>The course uses a <strong>project-weighted</strong> assessment mix. Most weeks you do a lab; two exams and a staged capstone anchor the semester.</p>
+<h3>Grade weights — GHY 417 (undergraduate)</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weekly lab notebooks (11 labs, lowest one dropped)</td>
+<td><strong>35%</strong></td>
+</tr>
+<tr>
+<td>Reading quizzes (lowest two dropped)</td>
+<td><strong>5%</strong></td>
+</tr>
+<tr>
+<td>Weekly discussion participation</td>
+<td><strong>5%</strong></td>
+</tr>
+<tr>
+<td>Midterm exam (open-book, one-week window)</td>
+<td><strong>15%</strong></td>
+</tr>
+<tr>
+<td>Final exam (open-book, extended window)</td>
+<td><strong>15%</strong></td>
+</tr>
+<tr>
+<td>Capstone project — proposal (5%) + check-in (5%) + final deliverable (15%)</td>
+<td><strong>25%</strong></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Grade weights — GHY 517 (graduate)</h3>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Weekly lab notebooks (11 labs, lowest one dropped)</td>
+<td><strong>25%</strong></td>
+</tr>
+<tr>
+<td>Reading quizzes (lowest two dropped)</td>
+<td><strong>5%</strong></td>
+</tr>
+<tr>
+<td>Weekly discussion participation</td>
+<td><strong>5%</strong></td>
+</tr>
+<tr>
+<td>Four reading critiques (2 pages each; weeks 4, 8, 11, 13)</td>
+<td><strong>10%</strong></td>
+</tr>
+<tr>
+<td>Midterm exam</td>
+<td><strong>15%</strong></td>
+</tr>
+<tr>
+<td>Final exam</td>
+<td><strong>10%</strong></td>
+</tr>
+<tr>
+<td>Capstone project — proposal (5%) + check-in (5%) + final deliverable + written report (20%)</td>
+<td><strong>30%</strong></td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>100%</strong></td>
+</tr>
+</tbody>
+</table>
+<h3>Grading scale</h3>
+<p>A: 90.00–100 · B: 80.00–89.99 · C: 70.00–79.99 · D: 60.00–69.99 · F: below 60.00.</p>
+<p>An <strong>interim grade</strong> will be posted by the end of Week 7 per USM policy so you know where you stand.</p>
+<h3>Lab rubric (applied consistently every week)</h3>
+<table>
+<thead>
+<tr>
+<th>Dimension</th>
+<th>Weight</th>
+<th>What graders look for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Code runs and is correct</td>
+<td>40%</td>
+<td>All required cells execute; correct functions called; outputs match expected within tolerance.</td>
+</tr>
+<tr>
+<td>Interpretation in plain language</td>
+<td>40%</td>
+<td>You explain what the result means, with the right statistical caveats, in your own words. Quality is valued over length.</td>
+</tr>
+<tr>
+<td>Visualization &amp; communication</td>
+<td>20%</td>
+<td>At least one publication-quality figure with title, axis labels, units, legend, and source note.</td>
+</tr>
+</tbody>
+</table>
+<p>A partial answer key is released the Monday <em>after</em> each lab deadline so you can self-compare.</p>
+<h3>Late work, extensions, and policies</h3>
+<ul>
+<li><strong>One free 48-hour extension</strong> on any single lab, no explanation required — email the instructor to activate it before the deadline.</li>
+<li>Otherwise, late labs are accepted up to one week past the deadline with a 20% penalty.</li>
+<li><strong>Quizzes:</strong> hard close. No individual extensions; the two lowest quiz scores are dropped.</li>
+<li><strong>Discussions:</strong> original post and replies must be on time to earn credit.</li>
+<li><strong>All work is solo.</strong> USM online-course policy prohibits pair or group assignments.</li>
+<li><strong>No deadlines during Fall Break</strong> (Oct 8–11) or <strong>Thanksgiving Wed–Sun</strong> (Nov 25–29). One lab shifts to a Tuesday to clear the Thanksgiving Wednesday.</li>
+</ul>
+<hr />
+<h2>Capstone Project</h2>
+<p>A semester-long applied project connecting the course to a real environmental question. Deliverables are staged so you get feedback throughout the semester rather than in a last-week crunch.</p>
+<h3>Undergraduates (417)</h3>
+<p>Choose a project from the <strong>curated capstone dataset list</strong> (released in Week 2). Each entry includes a dataset link, license note, suggested research question, which weekly methods it pairs with, and a difficulty tag.</p>
+<h3>Graduate students (517)</h3>
+<p>Bring your own research-aligned dataset (thesis-connected where possible). Design your own research question with instructor approval at the proposal stage.</p>
+<h3>Deliverables</h3>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>Due</th>
+<th>What to submit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Proposal</strong> (5%)</td>
+<td><strong>Wed Oct 7</strong></td>
+<td>1-page document: research question, hypothesis, planned methods (at least three from the course), dataset link.</td>
+</tr>
+<tr>
+<td><strong>Check-in</strong> (5%)</td>
+<td><strong>Wed Nov 11</strong></td>
+<td>Working notebook: data loaded, descriptive stats complete, at least one inferential test run.</td>
+</tr>
+<tr>
+<td><strong>Final deliverable</strong> (15% for 417 / 20% for 517)</td>
+<td><strong>Thu Dec 10</strong></td>
+<td>Polished notebook + a short ArcGIS Online story map (4–6 sections) communicating the analysis to a non-statistician audience. <strong>517 also submits a 6–8 page written report</strong> in the style of a journal short communication.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>Generative AI Policy (USM Option 1: Encouraged Use)</h2>
+<p>Generative AI tools (Gemini in Colab, ChatGPT, Claude, GitHub Copilot, and similar) are <strong>encouraged</strong> in this course. Statistics and GIS are exactly the kind of domain where AI tools accelerate learning when used well and mislead you when used poorly. Your job in this course is to learn both the methods and the judgment to use AI responsibly with them.</p>
+<h3>You may use AI for</h3>
+<ul>
+<li>Explaining concepts in different words.</li>
+<li>Debugging code.</li>
+<li>Suggesting which test to use.</li>
+<li>Generating code you then adapt and/or verify.</li>
+<li>Drafting written interpretations that you then verify and edit.</li>
+<li>Learning Python library syntax.</li>
+</ul>
+<h3>You must</h3>
+<ol>
+<li><strong>Verify</strong> every method, formula, or test recommendation against the textbook or another authoritative source. AI tools sometimes invent Python spatial-stats syntax that does not exist.</li>
+<li>Include an <strong>AI Usage Statement</strong> at the end of every lab and the capstone: which tools you used, what you asked and why.</li>
+<li>Submit work that you can <strong>explain and defend</strong> if asked.</li>
+</ol>
+<h3>You may not</h3>
+<ul>
+<li>Paste a lab prompt into an AI tool and submit its output without verifying it.</li>
+</ul>
+<p>Every lab notebook contains a short <strong>AI Workflow</strong> cell — a specific prompted exploration tied to that week's method — and a <strong>Verify &amp; Reflect</strong> cell where you explain what AI got right or wrong. These normalize the "use AI, then audit AI" loop.</p>
+<hr />
+<h2>Course Schedule</h2>
+<p><strong>Legend:</strong> <em>Module opens</em> = new content released; <em>Q#</em> = reading quiz due (11:59 pm); <em>Lab #</em> = lab notebook due (Wed 11:59 pm unless noted); <em>DP</em> = discussion original post (Fri 11:59 pm of release week); <em>DR</em> = discussion replies (Tue 11:59 pm following week).</p>
+<table>
+<thead>
+<tr>
+<th>Wk</th>
+<th>Module opens</th>
+<th>Topic</th>
+<th>Lembo/McGrew Ch.</th>
+<th>Deliverables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Mon Aug 24</td>
+<td>Course orientation; statistics in geography; environment setup; AI-literacy launch</td>
+<td>1, intro to Ch 2</td>
+<td><strong>Lab 0</strong> setup notebook (ungraded, completion) due Wed Sep 2; intro discussion post Fri Aug 28</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Mon Aug 31</td>
+<td>Nature of geographic data; measurement scales; data preparation</td>
+<td>2</td>
+<td>Q1 <strong>Tue Sep 8</strong> <em>(Mon = Labor Day)</em>; <strong>Lab 1</strong> Wed Sep 9</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Tue Sep 8</strong> <em>(Mon = Labor Day)</em></td>
+<td>Descriptive statistics: non-spatial + spatial (mean center, std distance, ellipse)</td>
+<td>3</td>
+<td>Q2 Mon Sep 14; <strong>Lab 2</strong> Wed Sep 16</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Mon Sep 14</td>
+<td>Probability; probability distributions (normal, binomial, Poisson)</td>
+<td>4, 5</td>
+<td>Q3 Mon Sep 21; <strong>Lab 3</strong> Wed Sep 23; <strong>517 critique #1</strong> Wed Sep 23</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Mon Sep 21</td>
+<td>Sampling; sampling distributions; estimation; confidence intervals</td>
+<td>6</td>
+<td>Q4 Mon Sep 28; <strong>Lab 4</strong> Wed Sep 30</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Mon Sep 28</td>
+<td>Elements of inference; one-sample tests</td>
+<td>7, 8</td>
+<td>Q5 Mon Oct 5; <strong>Lab 5</strong> Wed Oct 7; <strong>Capstone proposal Wed Oct 7</strong></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Mon Oct 5 <em>(Fall Break Thu–Sun Oct 8–11)</em></td>
+<td>Two-sample and dependent-sample tests</td>
+<td>9</td>
+<td>Q6 Mon Oct 12; <strong>Lab 6</strong> Wed Oct 14</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Mon Oct 12</td>
+<td>Three-or-more sample tests (ANOVA, Kruskal–Wallis)</td>
+<td>10</td>
+<td>Q7 Mon Oct 19; <strong>Lab 7</strong> Wed Oct 21; <strong>517 critique #2</strong> Wed Oct 21</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Mon Oct 19</td>
+<td>Midterm review week — no new lab</td>
+<td>review</td>
+<td><strong>Midterm exam window: Mon Oct 19 noon → Mon Oct 26 11:59 pm</strong></td>
+</tr>
+<tr>
+<td>10</td>
+<td>Mon Oct 26</td>
+<td>Categorical difference tests (χ², goodness-of-fit, contingency)</td>
+<td>11</td>
+<td>Q8 Mon Nov 2; <strong>Lab 8</strong> Wed Nov 4</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Mon Nov 2</td>
+<td><strong>Point pattern analysis</strong> (quadrat, NN, K-function, kernel density)</td>
+<td>12, 13</td>
+<td>Q9 Mon Nov 9; <strong>Lab 9</strong> Wed Nov 11; <strong>Capstone check-in Wed Nov 11</strong>; <strong>517 critique #3</strong> Wed Nov 11</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Mon Nov 9</td>
+<td><strong>Area pattern analysis / spatial autocorrelation</strong> (Moran's I, Geary's C, LISA)</td>
+<td>14</td>
+<td>Q10 Mon Nov 16; <strong>Lab 10</strong> Wed Nov 18</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Mon Nov 16</td>
+<td>Correlation; simple linear regression; residual diagnostics</td>
+<td>15, 16</td>
+<td>Q11 Mon Nov 23; <strong>Lab 11 Tue Nov 24</strong> <em>(shifted earlier for Thanksgiving)</em>; <strong>517 critique #4</strong> Tue Nov 24</td>
+</tr>
+<tr>
+<td>14</td>
+<td><em>(no new module — Thanksgiving Wed–Sun Nov 25–29)</em></td>
+<td>Capstone work week</td>
+<td>—</td>
+<td>No deadlines</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Mon Nov 30</td>
+<td>Multivariate methods; <strong>spatial regression &amp; GWR</strong>; course synthesis</td>
+<td>17, 18 (+ touch on 19–21)</td>
+<td>Demo notebook only; no graded lab</td>
+</tr>
+<tr>
+<td>Finals</td>
+<td>Dec 7–10</td>
+<td>Final exam window + capstone delivery</td>
+<td>—</td>
+<td><strong>Final exam window: Fri Dec 4 noon → Wed Dec 9 11:59 pm</strong>; <strong>Capstone final deliverable Thu Dec 10 11:59 pm</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>USM Required Policies</h2>
+<h3>Course Workload Statement</h3>
+<p>Students are expected to invest considerable time in learning the material for this course. The University of Southern Mississippi expects that for typical online course, the average student time investment is approximately <strong>ten hours per week</strong>, including all assignments, viewing of lectures, reading, and asynchronous interactions. Most students work and have family or other obligations; time management is critical for student success. Resources for academic, technical, self-help, social, etc., can be found at the <a href="https://www.usm.edu/help">Student Help website</a>.</p>
+<h3>Grading Policies and Calculation</h3>
+<p>A list of possible grades at the University can be found in the Bulletin (<a href="http://catalog.usm.edu">http://catalog.usm.edu</a>). Students will receive an <strong>interim grade</strong> at the seven-week point to give them an indication of their performance at that point in the semester. Students may drop a course with no penalty in the first week of the semester. If students wish to leave a course with a grade of "W" (for "Withdrawal"), they may request to do so before the 50th day (specific dates on the <a href="https://www.usm.edu/registrar/calendars">registrar's calendars page</a>). Students who receive a grade of W do not receive any money back, and the grade is permanently included on their transcripts. "Incompletes" can only be assigned in cases of extraordinary circumstances beyond the student's control.</p>
+<h3>Academic Integrity Statement</h3>
+<p>Academic misconduct involves deception to improve a grade, earn course credit, complete a degree, or create an unfair academic advantage. All students at the University of Southern Mississippi should familiarize themselves with the Student Academic Integrity Policy. Forms of academic misconduct include, but are not limited to: cheating, plagiarism, lying, acquiring or distributing information inappropriately, fabrication or falsification of data, stealing or defacing, multiple submissions, conspiracy, and <strong>unauthorized use of artificial intelligence</strong> (see the AI Policy above for what is and is not permitted in this course).</p>
+<p>If you commit an act of academic misconduct, sanctions ranging from resubmission of work to course failure may occur, up to the possibility of receiving a grade of "XF" ("Failure due to academic misconduct"), which will be on the student's transcript. If you are accused of academic misconduct, visit the Academic Integrity Website or email <code>integrity@usm.edu</code> for questions about your rights and the process.</p>
+<h3>Student Support Resources</h3>
+<p>Our goal is to ensure students have the resources they need to be successful. Students needing support for academics, financial assistance, technical assistance, or mental, emotional, recovery, or other needs can use <a href="https://www.usm.edu/help">usm.edu/help</a> to find resources on campus as well as self-help options.</p>
+<h3>Academic Support Resources</h3>
+<p>Please see the <a href="https://www.usm.edu/student-success/">Student Success Website</a> for information on tutoring and other academic assistance.</p>
+<h3>Student Accessibility Services</h3>
+<p>Student Accessibility Services (SAS) is Southern Miss's designated office to assist the University in its commitment to protect the civil rights of students with disabilities. SAS offers reasonable accommodations to give students equitable access to university courses and resources. Disabilities covered under the ADA may include but are not limited to ADHD, learning disabilities, psychiatric disabilities, physical disabilities, chronic health disorders, temporary injuries, and pregnancies. If you feel that you need accommodations, contact SAS at <strong>601-266-5024</strong>, email <code>sas@usm.edu</code>, or visit <a href="https://www.usm.edu/sas">usm.edu/sas</a>. Students in an asynchronous online course who require extended time on the midterm or final exam should submit their SAS letter before the end of Week 3 so accommodations can be built into the exam windows.</p>
+<h3>Speaking and Writing Centers</h3>
+<p>The Writing Center and the Speaking Center provide individualized feedback and support for writing and speaking assignments in any class. Both centers offer online consultations. Book an appointment at <a href="https://usm.mywconline.com">usm.mywconline.com</a>. See <a href="https://www.usm.edu/writing-center">usm.edu/writing-center</a> or <a href="https://www.usm.edu/speaking-center">usm.edu/speaking-center</a> for details.</p>
+<h3>Mental Well-Being</h3>
+<p>USM recognizes that students sometimes experience challenges that make learning difficult. If life stressors — anxiety, depression, relationship problems, difficulty concentrating, alcohol or drug problems, or other stressful experiences — are interfering with your academic or personal success, consider contacting <strong>Student Counseling Services (SCS) at 601-266-4829</strong>. More information at <a href="https://www.usm.edu/student-counseling-services">usm.edu/student-counseling-services</a> or <a href="https://www.usm.edu/help">usm.edu/help</a>.</p>
+<p>In the event of emergency, call <strong>911</strong>. For a mental health crisis after business hours, call or text the <strong>National Suicide Hotline at 988</strong> (<a href="https://988lifeline.org">988lifeline.org</a>).</p>
+<h3>Nondiscrimination Statement</h3>
+<p>The University of Southern Mississippi offers to all persons equal access to educational, programmatic, and employment opportunities without regard to age, sex, sexual orientation, disability, pregnancy, gender identity, genetic information, religion, race, color, national origin, and/or veteran status pursuant to applicable state and federal law.</p>
+<h3>Confidentiality and Mandatory Reporting</h3>
+<p>As an instructor, one of my responsibilities is to help create and maintain a safe learning environment on our campus. I also have a mandatory reporting responsibility related to my role as a faculty member. I am required to share information regarding sexual misconduct or information about a crime that may have occurred on USM's campus with certain University officials responsible for the investigation and remediation of sexual misconduct. The information will remain private and will only be shared with those officials necessary to resolve the matter. If you would like to speak in confidence, resources available include Confidential Advisors with the Shafer Center for Crisis Intervention, the Counseling Center, Student Health Services, and Clergy. More information at <a href="https://www.usm.edu/title-ix">www.usm.edu/title-ix</a>.</p>
+<hr />
+<h2>A Note from the Instructor</h2>
+<p>This is a rebuild of the course from the ground up for a fully online, asynchronous audience. If any part of the schedule, structure, or expectations does not work for your situation as we go, please contact me early. It is much easier to solve a problem in week 3 than in week 13. I am rooting for you.</p>
+<p>— <em>George Raber</em></p>
+<hr />
+<p><em>Syllabus draft — Fall 2026. Last updated during design phase; verify all dates against the USM Registrar's Fall 2026 calendar before publication.</em></p>

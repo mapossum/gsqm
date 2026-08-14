@@ -1,0 +1,76 @@
+<h1>Week 2 — The Nature of Geographic Data</h1>
+<p><em>Module opens Monday, August 31. Reading Quiz 1 due Tuesday, September 8, 11:59 pm CT (Labor Day shift). Lab 1 due Wednesday, September 9, 11:59 pm CT. Discussion post due Friday, September 4; replies due Tuesday, September 8.</em></p>
+<h2>Introduction</h2>
+<p>Before we can <em>analyze</em> data statistically, we have to understand what our data actually is. That sounds obvious, but it's where a lot of statistical mistakes come from: people apply methods that are inappropriate for the type of data they have. This week we work through the vocabulary and habits of thinking about geographic data — measurement scales, data quality, and the preparation steps that get raw data ready for analysis.</p>
+<p>Our real-world dataset this week is the <strong>EPA EJScreen</strong> for Mississippi's three coastal counties: <strong>Hancock, Harrison, and Jackson</strong>. EJScreen combines demographic indicators with environmental indicators at the census block group level to help identify communities that face disproportionate environmental burden. It's a great teaching dataset because it has variables at every measurement scale, real data-quality issues, and it tells a story that matters — one that we'll continue to develop across the semester when we get to spatial autocorrelation in Week 12.</p>
+<h2>Learning Objectives</h2>
+<p>By the end of this week you will be able to:</p>
+<ol>
+<li><strong>Classify</strong> an attribute in a dataset as nominal, ordinal, interval, or ratio, and explain why the classification matters for the methods you can use on it.</li>
+<li><strong>Distinguish</strong> between observational units and attributes, between spatial and aspatial variables, and between individual-level and aggregated data.</li>
+<li><strong>Audit</strong> a real environmental dataset for common quality issues — missing values, inconsistent codes, projection problems, outliers — and describe what you find.</li>
+<li><strong>Load, project, and plot</strong> the EJScreen dataset for the three MS coastal counties in Colab using geopandas.</li>
+</ol>
+<h2>To-Do List</h2>
+<ul>
+<li>[ ] Read Lembo, McGrew &amp; Monroe Chapter 2 in full (see <strong>W2_Reading_Guide</strong>).</li>
+<li>[ ] Read the short supplement on reading a data dictionary (also in the reading guide).</li>
+<li>[ ] Watch the <strong>Week 2 video lecture</strong> (5 short segments, ~40 min total with knowledge checks).</li>
+<li>[ ] Take <strong>Reading Quiz 1</strong> — opens with the module Monday, due <strong>Tue Sept 8, 11:59 pm CT</strong> (Monday would be Labor Day).</li>
+<li>[ ] Complete <strong>Lab 1: Data Audit</strong> and upload to Canvas by <strong>Wed Sept 9, 11:59 pm CT</strong>.</li>
+<li>[ ] Post your <strong>discussion contribution</strong> by <strong>Fri Sept 4, 11:59 pm CT</strong> and reply to two classmates by <strong>Tue Sept 8, 11:59 pm CT</strong>.</li>
+<li>[ ] <em>(Reminder)</em> If you haven't submitted Lab 0 yet, it's due tomorrow (Wed Sept 2).</li>
+</ul>
+<h2>Estimated Time Budget</h2>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read Ch 2 + data-dictionary supplement</td>
+<td>1.5 h</td>
+</tr>
+<tr>
+<td>Segmented video lecture</td>
+<td>1.0 h</td>
+</tr>
+<tr>
+<td>Reading quiz</td>
+<td>0.5 h</td>
+</tr>
+<tr>
+<td>Lab 1 (data audit notebook)</td>
+<td>3.0 h</td>
+</tr>
+<tr>
+<td>Discussion post + 2 replies</td>
+<td>0.5 h</td>
+</tr>
+<tr>
+<td>Capstone planning (start thinking)</td>
+<td>0.5 h</td>
+</tr>
+<tr>
+<td>Slack / review / questions</td>
+<td>1.0 h</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>~8 h</strong> <em>(slightly under target — first real content week; Week 3 will hit the full 10)</em></td>
+</tr>
+</tbody>
+</table>
+<h2>Connection to the Rest of the Course</h2>
+<p>Everything downstream depends on this week. The reason the textbook spends a whole chapter on measurement scales is that the choice of a statistical test in Week 6, or a correlation coefficient in Week 13, or a regression model in Week 15 all depend on whether your variables are nominal, ordinal, interval, or ratio. If you pick the wrong test for your data type, no amount of Python will save you.</p>
+<p>You'll also see EJScreen again in <strong>Week 12 (spatial autocorrelation)</strong> — when we ask whether environmental burden clusters geographically across MS census tracts — and it's a strong candidate dataset for the <strong>capstone project</strong> for anyone interested in environmental justice topics.</p>
+<h2>Getting Help</h2>
+<ul>
+<li>Keep <strong><code>Python_Resources.md</code></strong> open in another tab while you work through Lab 1 — the pandas cheatsheet section covers most of what you'll see.</li>
+<li>Post technical questions on the course <strong>Q&amp;A forum</strong>.</li>
+<li>Email me for a <strong>Teams or Zoom appointment</strong> if a video call would help.</li>
+<li>The <strong>Wednesday nudge</strong> habit: if you're stuck, don't wait until Tuesday night to say so. I'm much more helpful mid-week than I am at 10 pm the day before the deadline.</li>
+</ul>

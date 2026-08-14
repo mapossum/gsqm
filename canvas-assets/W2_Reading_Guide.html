@@ -1,0 +1,57 @@
+<h1>Week 2 — Reading Guide</h1>
+<h2>Assigned Reading</h2>
+<ol>
+<li><strong>Lembo, McGrew &amp; Monroe (2024), Chapter 2</strong> — "Geographic Data: Characteristics and Preparation." Read the whole chapter (~25 pages).</li>
+<li><strong>Reading a Data Dictionary — Environmental Datasets</strong> (short primer below) — a 10-minute piece I've written for the course.</li>
+<li><em>(Optional)</em> <strong>EPA EJScreen Technical Documentation</strong> — skim Sections 1 and 3 only. This is the actual technical doc for the dataset you'll audit in Lab 1. Link in Canvas.</li>
+</ol>
+<p>Total: about 1.5 hours.</p>
+<h2>What to Look For in Chapter 2</h2>
+<p>Chapter 2 is dense with vocabulary but light on math. The vocabulary matters — you'll use these terms all semester. Come away with clear answers to:</p>
+<ul>
+<li><strong>What is an observational unit</strong> (or "individual" in the text)? Give an example for each of these datasets: (a) hurricane tracks, (b) EJScreen census block groups, (c) stream discharge measurements at USGS gages.</li>
+<li><strong>Attributes vs. individuals</strong> — what's the difference, and how does the text distinguish <em>spatial</em> attributes from <em>aspatial</em> ones?</li>
+<li><strong>The Stevens hierarchy of measurement scales.</strong> You should be able to give a spontaneous example of each: nominal, ordinal, interval, ratio. Practice with EJScreen variables — is "state FIPS code" nominal or ratio? (Trick question — read the chapter carefully.)</li>
+<li><strong>Individual vs. aggregated data</strong> — what happens when you take individual-level data (e.g., a person) and aggregate to a spatial unit (e.g., a census tract)? What's lost in aggregation? <em>(This becomes very important when we talk about the "ecological fallacy" in Week 13.)</em></li>
+<li><strong>Discrete vs. continuous</strong> data — what's the distinction, and why does it matter for the probability distributions we'll cover in Week 4?</li>
+<li><strong>Data quality dimensions</strong> — the text lists several. Note them; the AI Workflow in Lab 1 makes you use them.</li>
+<li><strong>Projections and coordinate systems</strong> — how does the choice of projection affect a spatial analysis? Note especially any discussion of <em>area-preserving</em> vs <em>distance-preserving</em> projections; this comes back in Weeks 3, 11, and 12.</li>
+</ul>
+<h2>What to Look For in the Data-Dictionary Primer</h2>
+<p>The primer teaches a <em>habit</em>: before you do anything with a dataset, spend 20 minutes with its documentation. Come away knowing:</p>
+<ul>
+<li>The four things every data dictionary should tell you.</li>
+<li>What "flag" columns typically mean.</li>
+<li>Where to look for the "known caveats" that the metadata author didn't want you to miss.</li>
+</ul>
+<h2>Note-Taking Suggestion</h2>
+<p>Make a two-column table as you read Chapter 2: <strong>Term</strong> | <strong>Example from EJScreen (or hurricanes, or streams)</strong>. You'll be glad you did during the quiz and Lab 1.</p>
+<hr />
+<h1>Primer: Reading a Data Dictionary for Environmental Datasets</h1>
+<p><em>Required reading for Week 2. About 10 minutes.</em></p>
+<p>Every serious environmental dataset comes with a <strong>data dictionary</strong> — sometimes called the metadata, the technical documentation, the codebook, or "that PDF nobody reads." Reading the data dictionary before you analyze the data is the single most consequential habit you can develop in this course. It is also the habit most people skip. This primer is here to convince you not to skip it and to give you a repeatable process when you do it.</p>
+<h2>Why the data dictionary matters</h2>
+<p>Data dictionaries answer four questions that, if you don't know the answers, will make your analysis wrong in ways you may not notice:</p>
+<ol>
+<li><strong>What does each column actually represent?</strong> Column names lie. A column called <code>income</code> might mean "median household income in dollars," "median household income in thousands of dollars," "log of household income," or "an income quintile from 1 to 5." Same column name, wildly different analyses.</li>
+<li><strong>What are the units?</strong> A discharge measurement in cubic feet per second is not comparable to a discharge measurement in cubic meters per second. Wind speed in knots is not the same as wind speed in miles per hour. When you compute means and standard deviations, units matter or your results are meaningless.</li>
+<li><strong>What codes represent missing data or special situations?</strong> The number -999 in a <code>min_pressure</code> column is not a real pressure. It's a legacy missing-data flag. If you don't convert it to NaN before you compute a mean, your average hurricane pressure will be nonsense.</li>
+<li><strong>What is the spatial reference (CRS)?</strong> If you load a shapefile in the wrong projection you can be off by kilometers. If you overlay two datasets in different projections without reprojecting, your join is wrong. GIS is unforgiving on this point.</li>
+</ol>
+<p>Every data dictionary you'll read in this course answers all four of these questions — sometimes clearly, sometimes hidden in an appendix. Your job is to find the answers before you start coding.</p>
+<h2>The 20-minute audit</h2>
+<p>When you open a new dataset, spend 20 minutes doing the following before you write a single line of analysis code:</p>
+<p><strong>Minute 1–5: Read the top of the technical doc.</strong> The first section usually tells you what the dataset is <em>for</em> — what questions it was designed to answer. This helps you avoid using it to answer questions it was never designed for.</p>
+<p><strong>Minute 6–12: Skim the variable list.</strong> For each variable, note: what does it mean, what are the units, what's the measurement scale, is there a missing-data code? A messy data dictionary might present this in a table; a well-designed one will have a dedicated "codebook" section. If the dataset has 200 columns, don't read all of them — focus on the ones you actually plan to use.</p>
+<p><strong>Minute 13–18: Read the "known limitations" or "caveats" section.</strong> Every honest data producer has one. It will tell you what the dataset gets wrong, what it doesn't measure, what has changed over time, and what you should be skeptical of. Skipping this section is a leading cause of wrong analyses.</p>
+<p><strong>Minute 19–20: Find the citation and license.</strong> Bookmark them. You'll need them when you write up your results.</p>
+<h2>"Flag" columns</h2>
+<p>Environmental datasets often include flag columns — a column called <code>qual_flag</code>, <code>record_id</code>, <code>data_source_code</code>, <code>status_code</code>, or similar. Flag columns tell you <em>how</em> the value in the neighboring column was measured or <em>whether</em> it should be trusted. In HURDAT2, a record with a "L" in the <code>record_id</code> column marks a landfall observation, not a routine 6-hourly point. In USGS stream gage data, a "P" flag means the value is provisional. Never ignore flag columns. Read them at the same time as the columns they annotate.</p>
+<h2>What to look for that documentation authors don't tell you</h2>
+<p>Two things you often have to figure out for yourself:</p>
+<p><strong>Sample size and coverage over time.</strong> Just because a dataset is called "1851 to present" doesn't mean it has the same quality across that whole span. Historical records are often sparser or lower-quality. Plot your sample size by year before you assume the coverage is uniform.</p>
+<p><strong>Consistency across geographic units.</strong> A national dataset may have been assembled from state-level submissions with slightly different definitions. Look for state or agency codes in the metadata that could indicate methodological breaks.</p>
+<h2>Why this matters for AI-assisted work</h2>
+<p>Generative AI is very confident about data it has never actually looked at. If you ask an AI "what's in EJScreen?" you'll get a plausible-sounding answer that may or may not match the current version of the dataset. <strong>The data dictionary is the ground truth.</strong> Use AI to help you interpret the data dictionary, but treat the dictionary itself as authoritative.</p>
+<h2>Practicing this week</h2>
+<p>Lab 1 asks you to do a real 20-minute audit of the EPA EJScreen dataset before you touch it. The lab is structured to walk you through the process. By the end of the semester, you'll do this automatically for every new dataset — including your capstone dataset.</p>

@@ -1,0 +1,224 @@
+<h1>Data Card — EPA EJScreen (MS Coastal Counties Subset)</h1>
+<p><em>Used in Week 2 Lab 1. Revisited in Week 12 for spatial autocorrelation.</em></p>
+<h2>What is it?</h2>
+<p><strong>EJScreen</strong> is the US EPA's environmental justice screening and mapping tool. For each US Census block group, it reports 12 environmental indicators (like PM 2.5 concentration and proximity to hazardous facilities) alongside 7 socioeconomic indicators (like percent low-income and percent people of color). It also reports 13 EJ Indexes and 13 Supplemental Indexes that combine environmental and demographic information.</p>
+<blockquote>
+<p><strong>Terminology note (teachable moment).</strong> In EJScreen versions before ~2.2, the column called <code>PEOPCOLORPCT</code> was called <code>MINORPCT</code> ("percent minority"). EPA renamed it deliberately when they broadened the definition. If you consult any older EJScreen documentation, tutorial, blog post, or AI-generated code snippet and see <code>MINORPCT</code>, that is the same concept — just the outdated column name. In this course we always use the current name <code>PEOPCOLORPCT</code>. This kind of quiet column rename between dataset versions is a common source of code that "worked yesterday, broken today" — which is exactly why the Week 2 data-dictionary habit matters.</p>
+</blockquote>
+<p>For Lab 1 we work with the block groups for the three Mississippi Gulf coastal counties: <strong>Hancock</strong>, <strong>Harrison</strong>, and <strong>Jackson</strong> — roughly 250–300 block groups total.</p>
+<h2>Source</h2>
+<ul>
+<li><strong>Publisher:</strong> US Environmental Protection Agency (EPA)</li>
+<li><strong>Tool URL:</strong> https://www.epa.gov/ejscreen</li>
+<li><strong>Data downloads:</strong> https://www.epa.gov/ejscreen/download-ejscreen-data</li>
+<li><strong>Technical documentation:</strong> https://www.epa.gov/ejscreen/technical-information-about-ejscreen</li>
+</ul>
+<h2>License</h2>
+<p><strong>Public domain / open government data.</strong> As a US federal government dataset, EJScreen is in the public domain under 17 U.S.C. § 105. EPA requests attribution but does not require it legally.</p>
+<h2>Version note</h2>
+<p>EJScreen is updated approximately annually. Always record the specific version you used (e.g., "EJScreen 2024 release, data as of March 2024"). The methodology has changed between versions — comparing values across years is often not valid.</p>
+<p><strong>For Lab 1 we use the current release</strong> (whichever is live when the semester starts) and pin the version in the notebook.</p>
+<h2>Coordinate reference system</h2>
+<p>The downloaded file is a <strong>geodatabase or CSV with FIPS codes</strong>; when joined to a TIGER/Line block-group boundary file, geometry comes in <strong>NAD83 (EPSG:4269)</strong>, geographic coordinates in decimal degrees. For any <em>area</em> calculations in Lab 1 we reproject to <strong>NAD83 / Mississippi Transverse Mercator (EPSG:6508)</strong> which preserves area in the state.</p>
+<h2>Attributes and measurement scales</h2>
+<p><strong>Note:</strong> EJScreen has 60+ columns. Below are the ones we actually use in Lab 1; the full data dictionary is linked in the technical documentation. Attribute names below match the current release.</p>
+<h3>Identifier columns</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Scale</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ID</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>12-character census block group FIPS code. Always store as string to preserve leading zeros.</td>
+</tr>
+<tr>
+<td><code>STATE_NAME</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>e.g., "Mississippi"</td>
+</tr>
+<tr>
+<td><code>ST_ABBREV</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>e.g., "MS"</td>
+</tr>
+<tr>
+<td><code>CNTY_NAME</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>e.g., "Harrison County"</td>
+</tr>
+</tbody>
+</table>
+<h3>Demographic / socioeconomic indicators</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Scale</th>
+<th>Units / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ACSTOTPOP</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Total population (ACS 5-year estimate)</td>
+</tr>
+<tr>
+<td><code>PEOPCOLORPCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of population that is people of color (0–1). <em>Formerly <code>MINORPCT</code> in EJScreen ≤ v2.1.</em></td>
+</tr>
+<tr>
+<td><code>LOWINCPCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of population that is low-income (0–1)</td>
+</tr>
+<tr>
+<td><code>LINGISOPCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of population in linguistic isolation</td>
+</tr>
+<tr>
+<td><code>LESSHSPCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of adults with less than high school education</td>
+</tr>
+<tr>
+<td><code>UNDER5PCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of population under age 5</td>
+</tr>
+<tr>
+<td><code>OVER64PCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of population over age 64</td>
+</tr>
+</tbody>
+</table>
+<h3>Environmental indicators</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Scale</th>
+<th>Units / Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PM25</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Annual average PM 2.5 concentration, µg/m³</td>
+</tr>
+<tr>
+<td><code>OZONE</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Ozone summer seasonal average of daily maximum 8-hour concentration, ppb</td>
+</tr>
+<tr>
+<td><code>DSLPM</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Diesel particulate matter, µg/m³</td>
+</tr>
+<tr>
+<td><code>PTRAF</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Traffic proximity indicator (count of vehicles × distance)</td>
+</tr>
+<tr>
+<td><code>PNPL</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Proximity to National Priorities List (Superfund) sites</td>
+</tr>
+<tr>
+<td><code>PRMP</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Proximity to Risk Management Plan facilities</td>
+</tr>
+<tr>
+<td><code>PTSDF</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Proximity to Treatment/Storage/Disposal Facilities</td>
+</tr>
+<tr>
+<td><code>PWDIS</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Wastewater discharge indicator</td>
+</tr>
+<tr>
+<td><code>PRE1960PCT</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Fraction of housing built pre-1960 (lead paint proxy)</td>
+</tr>
+</tbody>
+</table>
+<h3>Percentile indicators (state and national)</h3>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Type</th>
+<th>Scale</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>P_PM25</code> / <code>P_OZONE</code> / <code>P_DSLPM</code> / ...</td>
+<td>numeric</td>
+<td><strong>Ordinal</strong></td>
+<td>State/national percentile (0–100). Ordinal because percentile intervals don't reflect equal intervals in the underlying variable.</td>
+</tr>
+<tr>
+<td><code>P_D_PM25</code> / <code>P_D_OZONE</code> / ...</td>
+<td>numeric</td>
+<td>Ordinal</td>
+<td>Demographic-weighted EJ Index percentiles</td>
+</tr>
+</tbody>
+</table>
+<h2>Known caveats</h2>
+<ul>
+<li><strong>Percentages are stored as fractions, not percents.</strong> <code>PEOPCOLORPCT = 0.42</code> means 42%. Multiply by 100 for display; don't for calculations that expect fractions.</li>
+<li><strong>Missing values are represented as <code>-999</code></strong> in some columns and as null/blank in others. Both need to be converted to NaN before any math.</li>
+<li><strong>Small-population block groups</strong> may have suppressed demographic values (privacy protection) or huge ACS margins of error.</li>
+<li><strong>Percentiles are computed against a national or state distribution</strong>; a block group at the "50th state percentile" is average <em>for Mississippi</em>, not average nationally.</li>
+<li><strong>Some environmental indicators are proximity-based</strong> and don't account for real-world barriers (rivers, highways) that could reduce actual exposure.</li>
+<li><strong>EJScreen is a screening tool, not a regulatory determination</strong>. Values suggest where to look further; they do not by themselves prove disparate impact.</li>
+<li><strong>The block-group boundary file (TIGER/Line) is separate</strong> from the EJScreen attribute table. You must join by FIPS code to make maps.</li>
+</ul>
+<h2>Why we use it in Weeks 2 and 12</h2>
+<p><strong>Week 2:</strong> EJScreen is a rich real-world dataset with variables at every measurement scale, well-documented quality issues, and immediate connection to environmental questions. It teaches the "audit the data before you touch it" habit without being overwhelming.</p>
+<p><strong>Week 12:</strong> The environmental indicators — especially PM 2.5, diesel PM, and traffic proximity — show clear spatial patterns at the block-group level. This makes EJScreen the ideal dataset for teaching Moran's I, Geary's C, and LISA cluster mapping.</p>
+<p><strong>Capstone:</strong> For any student interested in environmental justice, air quality, or exposure disparities, EJScreen is a strong capstone dataset. It's on the curated 417 list.</p>
+<h2>Citation suggestion</h2>
+<p>US Environmental Protection Agency. <em>EJScreen: Environmental Justice Screening and Mapping Tool.</em> [Year and version]. Available at https://www.epa.gov/ejscreen.</p>

@@ -1,0 +1,96 @@
+<h1>Data Card — NOAA HURDAT2 (Atlantic Hurricane Database)</h1>
+<p><em>Used as the Week 1 demo dataset in Lab 0. Model example of how every future Data Card in this course is structured.</em></p>
+<h2>What is it?</h2>
+<p><strong>HURDAT2</strong> (the "revised Atlantic Hurricane Database") is NOAA's authoritative record of every known North Atlantic tropical cyclone from 1851 to the present. It contains best-track information — position, maximum sustained wind, minimum central pressure, and storm status — at 6-hour intervals for every named storm plus many unnamed ones.</p>
+<p>For Lab 0 we use only a small subset (a handful of recent hurricanes) to keep the download small and the plot understandable.</p>
+<h2>Source</h2>
+<ul>
+<li><strong>Publisher:</strong> NOAA National Hurricane Center (NHC)</li>
+<li><strong>URL:</strong> https://www.nhc.noaa.gov/data/#hurdat</li>
+<li><strong>Direct file (Atlantic basin, current):</strong> https://www.nhc.noaa.gov/data/hurdat/hurdat2-1851-2023-051124.txt</li>
+<li><strong>Documentation:</strong> https://www.nhc.noaa.gov/data/hurdat/hurdat2-format-atl-1851-2023.pdf</li>
+</ul>
+<h2>License</h2>
+<p><strong>Public domain.</strong> As a US federal government dataset, HURDAT2 is in the public domain under 17 U.S.C. § 105. Attribution to NOAA/NHC is expected as a matter of practice but not legally required.</p>
+<h2>Coordinate reference system</h2>
+<p>Latitude/longitude in <strong>WGS 84 (EPSG:4326)</strong>, decimal degrees. The file itself stores coordinates as degrees + hemisphere codes (e.g. "27.5N", "80.2W") — the loader in Lab 0 converts to signed decimal degrees.</p>
+<h2>Attributes and measurement scales</h2>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Measurement scale</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>storm_id</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>e.g. "AL092023" for the 9th storm of 2023</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>Assigned name once storm reaches tropical-storm status; "UNNAMED" for pre-1950 storms and some others</td>
+</tr>
+<tr>
+<td><code>date_time</code></td>
+<td>datetime</td>
+<td>Interval (with an origin)</td>
+<td>6-hourly synoptic times (00, 06, 12, 18 UTC), plus occasional off-synoptic entries at landfall</td>
+</tr>
+<tr>
+<td><code>record_id</code></td>
+<td>text</td>
+<td>Nominal</td>
+<td>Flags special observations (e.g. "L" for landfall)</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>categorical</td>
+<td>Nominal</td>
+<td>TD (tropical depression), TS (tropical storm), HU (hurricane), EX (extratropical), etc.</td>
+</tr>
+<tr>
+<td><code>latitude</code> / <code>longitude</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Signed decimal degrees, WGS 84</td>
+</tr>
+<tr>
+<td><code>max_wind</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Maximum 1-minute sustained wind in knots (kt); can be missing (-999) for very early records</td>
+</tr>
+<tr>
+<td><code>min_pressure</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Minimum central pressure in millibars (mb); frequently missing before ~1979 satellite era</td>
+</tr>
+<tr>
+<td><code>wind_radii_*</code></td>
+<td>numeric</td>
+<td>Ratio</td>
+<td>Radii of 34-kt, 50-kt, 64-kt winds in four quadrants (post-2004 only)</td>
+</tr>
+</tbody>
+</table>
+<h2>Known caveats</h2>
+<ul>
+<li><strong>Data quality is uneven across time.</strong> Records before the 1940s rely on shipping observations and are missing or approximate for many storms. Records before the 1979 satellite era are missing many pressure and wind-radii fields.</li>
+<li><strong>Missing values are coded as -999</strong>, not as NaN. Any Python loader must convert these explicitly or descriptive statistics will be garbage.</li>
+<li><strong>Best-track data is reanalyzed periodically.</strong> The file version changes yearly as NOAA reprocesses recent seasons and revises historical estimates. Pin your date range if you want reproducibility.</li>
+<li><strong>Position accuracy varies.</strong> Modern positions are accurate to within tens of kilometers; historical positions may be off by hundreds.</li>
+<li><strong>6-hourly points are not tracks.</strong> To make a hurricane "line" on a map you have to sort by storm and time, then connect the points — HURDAT2 provides points, not linework.</li>
+</ul>
+<h2>Why we use it in Week 1</h2>
+<p>HURDAT2 is a <strong>great first spatial dataset</strong>: it's public, small enough to load in seconds, visually intuitive (everyone recognizes a hurricane track on a map), and it has all four measurement scales in one file. In Lab 0 we just plot a couple of storm tracks over the Gulf of Mexico to confirm the whole Python + geopandas + matplotlib stack is working end-to-end.</p>
+<p>We come back to HURDAT2 in Week 4 (probability distributions — annual hurricane counts) and again in Week 11 (point patterns — landfall locations).</p>
+<h2>Citation suggestion</h2>
+<p>Landsea, C. W., and J. L. Franklin (2013). Atlantic Hurricane Database Uncertainty and Presentation of a New Database Format. <em>Monthly Weather Review</em>, 141: 3576–3592.</p>
