@@ -1,0 +1,83 @@
+GEOID,COUNTYFP,NAME,ecoregion,poverty_pct_2023,pop_2023,area_km2,land_km2
+28001,001,Adams,Loess Plains,25.2,27380,1262.9,1197.5
+28003,003,Alcorn,Southeastern Plains,18.7,33360,1040.0,1036.1
+28005,005,Amite,Loess Plains,22.8,12360,1894.5,1891.0
+28007,007,Attala,Southeastern Plains,19.4,17100,1907.5,1903.5
+28009,009,Benton,Southeastern Plains,20.0,7360,1058.2,1053.1
+28011,011,Bolivar,Delta (Alluvial Plain),38.7,27350,2351.4,2270.1
+28013,013,Calhoun,Southeastern Plains,17.5,12370,1522.0,1519.2
+28015,015,Carroll,Loess Plains,17.2,8940,1643.1,1627.5
+28017,017,Chickasaw,Southeastern Plains,19.6,16310,1305.9,1299.6
+28019,019,Choctaw,Southeastern Plains,17.1,7920,1087.1,1083.1
+28021,021,Claiborne,Loess Plains,32.7,7550,1297.7,1262.4
+28023,023,Clarke,Southeastern Plains,18.3,15040,1795.8,1791.2
+28025,025,Clay,Southeastern Plains,20.7,17960,1077.6,1062.1
+28027,027,Coahoma,Delta (Alluvial Plain),30.8,19520,1510.0,1432.5
+28029,029,Copiah,Loess Plains,21.4,26690,2017.9,2013.2
+28031,031,Covington,Southeastern Plains,19.3,17690,1074.3,1071.8
+28033,033,DeSoto,Loess Plains,9.2,191020,1283.5,1233.7
+28035,035,Forrest,Southeastern Plains,19.0,72670,1217.2,1207.0
+28037,037,Franklin,Loess Plains,18.7,7550,1468.1,1460.7
+28039,039,George,Southeastern Plains,14.4,25060,1252.9,1239.8
+28041,041,Greene,Southeastern Plains,22.1,10840,1861.5,1846.0
+28043,043,Grenada,Southeastern Plains,20.9,20710,1163.7,1093.3
+28045,045,Hancock,Coastal Plain,15.6,45880,1251.0,1227.6
+28047,047,Harrison,Southeastern Plains,16.0,206020,1524.3,1485.7
+28049,049,Hinds,Loess Plains,21.0,206920,2272.1,2252.9
+28051,051,Holmes,Loess Plains,35.6,14820,1980.0,1959.8
+28053,053,Humphreys,Delta (Alluvial Plain),32.8,7130,1116.4,1084.4
+28055,055,Issaquena,Delta (Alluvial Plain),49.6,750,1143.3,1069.6
+28057,057,Itawamba,Southeastern Plains,14.0,22610,1399.8,1379.9
+28059,059,Jackson,Coastal Plain,13.4,145010,1932.2,1872.1
+28061,061,Jasper,Southeastern Plains,20.1,15840,1754.4,1751.6
+28063,063,Jefferson,Loess Plains,30.2,6590,1366.1,1346.6
+28065,065,Jefferson Davis,Southeastern Plains,25.0,10850,1059.3,1057.9
+28067,067,Jones,Southeastern Plains,19.0,64450,1812.0,1799.6
+28069,069,Kemper,Southeastern Plains,25.9,7760,1986.7,1984.4
+28071,071,Lafayette,Southeastern Plains,14.1,52720,1759.2,1636.1
+28073,073,Lamar,Southeastern Plains,13.1,65630,1294.5,1286.1
+28075,075,Lauderdale,Southeastern Plains,23.6,67610,1851.7,1822.5
+28077,077,Lawrence,Southeastern Plains,19.0,11650,1127.9,1115.3
+28079,079,Leake,Southeastern Plains,20.6,20790,1515.5,1509.7
+28081,081,Lee,Southeastern Plains,13.5,81500,1173.7,1165.4
+28083,083,Leflore,Delta (Alluvial Plain),28.8,25490,1570.2,1538.6
+28085,085,Lincoln,Loess Plains,18.9,34350,1523.6,1518.3
+28087,087,Lowndes,Southeastern Plains,19.9,55510,1337.4,1309.1
+28089,089,Madison,Loess Plains,10.0,110310,1921.1,1849.8
+28091,091,Marion,Southeastern Plains,21.5,23560,1420.4,1404.8
+28093,093,Marshall,Loess Plains,21.1,32150,1837.9,1829.0
+28095,095,Monroe,Southeastern Plains,17.3,33120,1999.5,1981.6
+28097,097,Montgomery,Southeastern Plains,21.6,9490,1056.0,1054.1
+28099,099,Neshoba,Southeastern Plains,20.5,28200,1480.1,1476.6
+28101,101,Newton,Southeastern Plains,18.3,20110,1500.8,1496.4
+28103,103,Noxubee,Southeastern Plains,28.9,9730,1813.4,1800.5
+28105,105,Oktibbeha,Southeastern Plains,25.5,45480,1196.0,1186.8
+28107,107,Panola,Loess Plains,26.2,32210,1825.4,1774.6
+28109,109,Pearl River,Southeastern Plains,18.9,56720,2119.9,2101.3
+28111,111,Perry,Southeastern Plains,19.6,11220,1683.8,1676.5
+28113,113,Pike,Southeastern Plains,23.6,38250,1063.6,1059.8
+28115,115,Pontotoc,Southeastern Plains,13.3,31170,1297.3,1289.3
+28117,117,Prentiss,Southeastern Plains,17.7,23780,1083.2,1074.8
+28119,119,Quitman,Delta (Alluvial Plain),32.1,5400,1052.5,1049.0
+28121,121,Rankin,Southeastern Plains,9.8,155430,2087.2,2008.5
+28123,123,Scott,Southeastern Plains,21.1,27180,1580.5,1577.9
+28125,125,Sharkey,Delta (Alluvial Plain),34.5,3270,1127.0,1118.1
+28127,127,Simpson,Southeastern Plains,20.1,25320,1528.9,1525.9
+28129,129,Smith,Southeastern Plains,16.8,13900,1650.1,1647.9
+28131,131,Stone,Southeastern Plains,15.6,17470,1160.4,1153.8
+28133,133,Sunflower,Delta (Alluvial Plain),32.5,20340,1830.9,1807.2
+28135,135,Tallahatchie,Delta (Alluvial Plain),31.2,10150,1688.2,1672.1
+28137,137,Tate,Loess Plains,15.1,27050,1064.1,1048.3
+28139,139,Tippah,Southeastern Plains,17.3,20640,1190.8,1185.8
+28141,141,Tishomingo,Southeastern Plains,15.4,18120,1151.3,1098.9
+28143,143,Tunica,Delta (Alluvial Plain),27.6,9130,1232.8,1176.2
+28145,145,Union,Southeastern Plains,14.9,28020,1079.5,1076.4
+28147,147,Walthall,Southeastern Plains,20.6,13710,1047.2,1046.2
+28149,149,Warren,Loess Plains,20.8,41720,1602.3,1524.3
+28151,151,Washington,Delta (Alluvial Plain),35.5,41030,1969.4,1875.1
+28153,153,Wayne,Southeastern Plains,21.0,19620,2106.7,2099.7
+28155,155,Webster,Southeastern Plains,16.4,9840,1096.0,1090.8
+28157,157,Wilkinson,Loess Plains,32.2,7070,1781.4,1756.3
+28159,159,Winston,Southeastern Plains,27.4,16950,1579.5,1572.8
+28161,161,Yalobusha,Southeastern Plains,20.7,12040,1281.4,1209.9
+28163,163,Yazoo,Loess Plains,30.9,21220,2418.6,2388.8
